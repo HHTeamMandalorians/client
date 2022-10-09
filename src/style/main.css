@@ -1,0 +1,13 @@
+footer, header{
+    position: sticky;
+    background-color: red;
+}
+footer{
+    bottom: 0;
+}
+header{
+    top: 0;
+}
+body{
+    margin: 0;
+}

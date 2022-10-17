@@ -7,6 +7,11 @@ const candidates = await (await fetch(`http://${host}:${port}/api/v1/candidates`
     "Authorization": "5tr0ng & c0mpl1c4ted key c0de th4t n0 0ne w1ll bre4k"//"whateverStringYouWant (there's no true authorization yet, only simple header check)"
   }
 })).json();
+const sender = await (await fetch(`http://${host}:${port}/api/v1/candidates`, {
+  vote: {
+    "Authorization": "",
+    "Post": ""
+  }
 function generateOptions(){
     let htmlValue = '';
     for(let i = 0; i < candidates.length(); i++){

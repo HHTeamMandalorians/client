@@ -4,9 +4,14 @@ const host = '';
 const port = '8080';
 const candidates = await (await fetch(`http://${host}:${port}/api/v1/candidates`, {
   headers: {
-    "Authorization": "5tr0ng & c0mpl1c4ted key c0de th4t n0 0ne w1ll bre4k"//"whateverStringYouWant (there's no true authorization yet, only simple header check)"
+    "Authorization": ""//"whateverStringYouWant (there's no true authorization yet, only simple header check)"
   }
 })).json();
+const vote = await (await fetch(`http://${host}:${port}/api/v1/vote`, {
+  headers: {
+    vote: ""
+  }
+}))
 function generateOptions(){
     let htmlValue = '';
     for(let i = 0; i < candidates.length(); i++){
@@ -15,9 +20,13 @@ function generateOptions(){
     return htmlValue;
 }
 $(function(){
+    let pass = $('#pass');
+    $('#pass_sub').on('click', function(){
+      candidates.authorization = pass.val();
+    })
     $('#answer').html(generateOptions());
-    $(document).on('submit', 'form.form' function(){
-        let opt = $('#answer').attr('selected', true).html();
-        // TODO send to database
+    $(document).on('submit', 'form.form', function(){
+        let opt = $('#answer').attr('selected');
+        vote.vote = opt;
     })
 })

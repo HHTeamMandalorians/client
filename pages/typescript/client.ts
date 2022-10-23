@@ -39,31 +39,35 @@ function addCandidate(candidate:{index:number,name:string}):HTMLDivElement {
   return card;
 }
 
-const config = await (await fetch("../config/server.json")).json();
+const config = await (await fetch("config/server.json")).json();
 
 if(!validateConfig(config))
-  throw new TypeError("File '../config/server.json' is not of type 'Config'.");
+  throw new TypeError("File 'config/server.json' is not of type 'Config'.");
 
 const request = fetch("http://"+config.instance+"/api/v"+config.protocol.toString()+"/candidates", {
   headers: {
-    "Authorization": "Magic"
+    "X-Authorization": "MagicValue",
+    "Access-Control-Allow-Origin": "*"
   },
+  credentials: "omit",
+  mode: "no-cors",
   method: "GET"
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener("load", () => {
   const main = document.getElementsByTagName("main")[0];
   if(!main) return;
-  const req = await request;
-  if(!req.ok)
-    throw new Error("Request error: "+req.statusText+" ("+req.status.toString()+").")
-  req.json().then(candidates => {
-    if(Array.isArray(candidates)) {
-      candidates.forEach((name, index) => {
-        if(typeof name === "string")
-          main.appendChild(addCandidate({name,index}));
-      });
-    }
+  request.then(req => {
+    if(!req.ok)
+      throw new Error("Request error: "+req.statusText+" ("+req.status.toString()+").")
+    req.json().then(candidates => {
+      if(Array.isArray(candidates)) {
+        candidates.forEach((name, index) => {
+          if(typeof name === "string")
+            main.appendChild(addCandidate({name,index}));
+        });
+      }
+    });
   });
 });
 

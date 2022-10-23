@@ -1,0 +1,30 @@
+{
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    /* Projects */
+    "incremental": true,
+    "tsBuildInfoFile": "./cache/tsbuildinfo.json",
+    /* Language and Environment */
+    "target": "ESNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    /* Modules */
+    "module": "ES2022",
+    /* Emit */
+    "outDir": "pages/javascript",
+    "sourceMap": true,
+    "removeComments": true,
+    "importHelpers": true,
+    "importsNotUsedAsValues": "error",
+    "newLine": "lf",
+    "noEmitOnError": true,
+    /* Interop Constraints */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    /* Type Checking */
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "files": [
+    "pages/typescript/client.ts"
+  ]
+}

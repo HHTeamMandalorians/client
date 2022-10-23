@@ -1,0 +1,12 @@
+/* Overlock / display font */
+@import "../../node_modules/@fontsource/overlock/400.css";
+@import "../../node_modules/@fontsource/overlock/700.css";
+
+/* Inter / sans-serif font */
+
+@import "../../node_modules/@fontsource/inter/400.css";
+@import "../../node_modules/@fontsource/inter/700.css";
+
+/* Twemoji / emoji font */
+
+@import "../../node_modules/twemoji-colr-font/twemoji.css";

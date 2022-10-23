@@ -1,0 +1,6 @@
+{
+  "// Server instance (ip:port) to be used. Defaults are below.": null,
+  "instance": "localhost:8080",
+  "// Supported protocol. Currently only v1 is supported.": null,
+  "protocol": 1
+}

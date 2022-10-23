@@ -1,0 +1,27 @@
+{
+  "name": "librevote-client",
+  "version": "0.1.0",
+  "description": "Static web page as a client implementation for LibreVote.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HHTeamMandalorians/client.git"
+  },
+  "scripts": {
+    "prepare": "tsc"
+  },
+  "author": "HHTeamMandalorians",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HHTeamMandalorians/client/issues"
+  },
+  "homepage": "https://github.com/HHTeamMandalorians/client#readme",
+  "dependencies": {
+    "@fontsource/inter": "^4.5.14",
+    "@fontsource/overlock": "^4.5.9",
+    "twemoji-colr-font": "^14.0.2"
+  },
+  "devDependencies": {
+    "@tsconfig/strictest": "^1.0.2",
+    "typescript": "^4.8.4"
+  }
+}

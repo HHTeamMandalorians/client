@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LibreVote – Devel</title>
+  <link rel="stylesheet" href="stylesheets/fonts.css">
+  <link rel="stylesheet" href="stylesheets/material.css">
+  <script src="javascript/client.js" type="module"></script>
+</head>
+<body>
+  <header>
+    <h1 class="appname">🗽️ LibreVote</h1>
+  </header>
+  <main><div>
+    <noscript>
+      <div class="card">
+        <summary>
+          <span class="marker">⏵</span>JavaScript jest wymagany!
+        </summary>
+        <p>
+          Ta strona dla prawidłowego funkcjonowania wymaga wsparcia przeglądarki dla
+        </p>
+        <button value="0" class="vote">Vote</button>
+      </div>
+    </noscript>
+  </main>
+  <footer>© 2022 HHTeamMandalorians</footer>
+  <script>
+    [...document.querySelectorAll("div.card > summary")]
+      .forEach(element => {element.addEventListener("click", () => {
+        if(element.parentElement.classList.contains("active")) {
+          element.parentElement.classList.remove("active");
+        } else {
+          [...document.getElementsByClassName("card active")]
+            .forEach(element => element.classList.remove("active"));
+          element.parentElement.classList.add("active");
+        }
+    })});
+  </script>
+</body>
+</html>
